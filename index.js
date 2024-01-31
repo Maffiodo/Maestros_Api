@@ -38,7 +38,7 @@ server.post("/",(req,res) => {
     numberarray [req.query.index]=req.query.num;
 })
 server.listen(3002, () => {
-    console.log('Servidor corriendo en http://localhost:3000');
+    console.log('Servidor corriendo en http://localhost:3002');
 })//a ver si se va esto
 //
 
