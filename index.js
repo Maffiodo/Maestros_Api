@@ -17,29 +17,11 @@ const maestros = [
 server.get('/', (req, res) => {
     res.send('Bienvenido a la API de maestros');
 });
-server.get('/maestro', (req, res) => {
-    res.send('Bienvenido a la API de maestros');
-    console.log(req);
-    console.log(req.params.maestro);
-    numberarray.push(maestro);
-    console.log(numero+maestros[numero].nombre);
-    res.json("El nombre del maestro numero "+numero+"es: "+ maestros[numero].nombre);
-});
-server.put("/:id/Maestro/Materia",(req,res)=>{
-    console.log(req);
-    console.log(req.params.numero);
-    maestros.push({id:id , nombre:Maestro, Materia:Materia});
-    res.json("Numero Guardado");
-})
-server.delete("/:index",(req,res) => {
-    numberarray.splice(req.params.index,1) //El uno hace referencia que borrará hasta que borre solo uno
-    res.json("Elemento borrado");
-    req.params.index 
-})
+
 
 server.listen(3002, () => {
     console.log('Servidor corriendo en http://localhost:3002');
-})
+});
 
 server.get('/maestros', (req, res) => {
     res.send(maestros);
