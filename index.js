@@ -43,3 +43,46 @@ app.get('/', (req, res) => {
     res.send('Bienvenido a la API de maestros');
 });
 
+server.get('/maestros', (req, res) => {
+    res.send(maestros);
+});
+
+server.get('/maestros/:id', (req, res) => {
+    const maestro = maestros.find(m => m.id === parseInt(req.params.id));
+    if (!maestro) res.status(404).send('El maestro no fue encontrado');
+    res.send(maestro);
+});
+
+server.post('/maestros', (req, res) => {
+    const maestro = {
+        id: maestros.length + 1,
+        nombre: req.body.nombre,
+        Materia: req.body.Materia
+    };
+    maestros.push(maestro);
+    res.send(maestro);
+});
+
+server.put('/maestros/:id', (req, res) => {
+    const maestro = maestros.find(m => m.id === parseInt(req.params.id));
+    if (!maestro) res.status(404).send('El maestro no fue encontrado');
+    maestro.nombre = req.body.nombre;
+    maestro.Materia = req.body.Materia;
+    res.send(maestro);
+});
+
+server.delete('/maestros/:id', (req, res) => {
+    const maestro = maestros.find(m => m.id === parseInt(req.params.id));
+    if (!maestro) res.status(404).send('El maestro no fue encontrado');
+    const index = maestros.indexOf(maestro);
+    maestros.splice(index, 1);
+    res.send(maestro);
+});
+
+server.patch('/maestros/:id', (req, res) => {  
+    const maestro = maestros.find(m => m.id === parseInt(req.params.id));
+    if (!maestro) res.status(404).send('El maestro no fue encontrado');
+    maestro.nombre = req.body.nombre;
+    maestro.Materia = req.body.Materia;
+    res.send(maestro);
+});
