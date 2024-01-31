@@ -1,6 +1,7 @@
 
 const express = require('express');
 const server = express();
+server.use(express.json());
 const PORT = 3002;
 let numberarray = [1,2,3,4,5];
 const maestros = [
