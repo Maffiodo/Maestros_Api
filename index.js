@@ -1,6 +1,7 @@
 
 const express = require('express');
 const server = express();
+const PORT = 3002;
 let numberarray = [1,2,3,4,5];
 const maestros = [
     { id: 1, nombre: 'Eva Claudia', Materia: 'Estandares y Metricas'},
@@ -38,7 +39,7 @@ server.post("/",(req,res) => {
     numberarray [req.query.index]=req.query.num;
 })
 server.listen(3002, () => {
-    console.log('Servidor corriendo en http://localhost:3000');
+    console.log('Servidor corriendo en http://localhost:3002');
 })//a ver si se va esto
 //
 
@@ -85,3 +86,4 @@ server.patch('/maestros/:id', (req, res) => {
     maestro.Materia = req.body.Materia;
     res.send(maestro);
 });
+
