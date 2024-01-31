@@ -19,9 +19,7 @@ server.get('/', (req, res) => {
 });
 
 
-server.listen(3002, () => {
-    console.log('Servidor corriendo en http://localhost:3002');
-});
+
 
 server.get('/maestros', (req, res) => {
     res.send(maestros);
@@ -67,3 +65,6 @@ server.patch('/maestros/:id', (req, res) => {
     res.send(maestro);
 });
 
+server.listen(3002, () => {
+    console.log('Servidor corriendo en http://localhost:3002');
+});
